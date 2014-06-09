@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="AllowBackup">
+        <ignore path="AndroidManifest.xml" />
+    </issue>
+    <issue id="ContentDescription">
+        <ignore path="res/layout/equalspacelayout.xml" />
+        <ignore path="res/layout/equalspacelayout2.xml" />
+        <ignore path="res/layout/list_item.xml" />
+        <ignore path="res/layout/sel_list_item.xml" />
+        <ignore path="res/layout/splash_screen_activity.xml" />
+    </issue>
+    <issue id="DefaultLocale">
+        <ignore path="src/com/vspl/android/prototype/png/HorizontalListViewDemo.java" />
+    </issue>
+    <issue id="HardcodedText">
+        <ignore path="res/layout/equalspacelayout.xml" />
+        <ignore path="res/layout/equalspacelayout2.xml" />
+    </issue>
+    <issue id="OldTargetApi">
+        <ignore path="AndroidManifest.xml" />
+    </issue>
+    <issue id="UsesMinSdkAttributes">
+        <ignore path="AndroidManifest.xml" />
+    </issue>
+</lint>

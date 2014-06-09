@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/img_sp_dptext_bg" >
+
+    <TextView
+        android:id="@+id/spinner_dp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:textColor="@drawable/color_selector"
+        android:textSize="16sp" />
+
+</LinearLayout>

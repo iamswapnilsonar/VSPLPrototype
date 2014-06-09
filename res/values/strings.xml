@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DemoActivity!</string>
+    <string name="app_name">PNG Diamonds</string>
+
+    <string-array name="heros">
+        <item>aamir</item>
+        <item>ajay</item>
+        <item>akshay</item>
+        <item>shaahid</item>
+        <item>shahrukh</item>
+    </string-array>
+    <string-array name="heroins">
+        <item>amruta</item>
+        <item>asin</item>
+        <item>genelia</item>
+        <item>kajal</item>
+        <item>shraddha</item>
+        <item>vidya</item>
+    </string-array>
+
+</resources>
