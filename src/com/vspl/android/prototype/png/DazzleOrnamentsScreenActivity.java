@@ -32,7 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
 @SuppressWarnings("deprecation")
-public class MotionViewsActivity extends Activity {
+public class DazzleOrnamentsScreenActivity extends Activity {
 
 	private Button m_btnSelectImage, m_btnSDeleteImage, m_btnZoom;
 	private Context m_context;
@@ -66,7 +66,7 @@ public class MotionViewsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.motion_layout);
 		
-		m_context = MotionViewsActivity.this;
+		m_context = DazzleOrnamentsScreenActivity.this;
 
 		m_btnSelectImage = (Button) findViewById(R.id.btn_image);
 		m_ivImage = (ImageView) findViewById(R.id.ivCardView);
