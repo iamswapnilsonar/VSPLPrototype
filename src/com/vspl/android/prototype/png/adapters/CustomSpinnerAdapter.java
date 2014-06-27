@@ -23,7 +23,7 @@ public class CustomSpinnerAdapter extends ArrayAdapter<String> {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = super.getView(position, convertView, parent);
-		((TextView) view).setTypeface(FontUtils.getRobotoRegularTypeface(context));
+		((TextView) view).setTypeface(FontUtils.getHelveticaNeueTypeface(context));
 		return view;
 	}
 	
@@ -40,7 +40,7 @@ public class CustomSpinnerAdapter extends ArrayAdapter<String> {
 		String item = data[position];
 		if (item != null) {
 			TextView text1 = (TextView) row.findViewById(R.id.spinner_dp_text);
-			text1.setTypeface(FontUtils.getRobotoRegularTypeface(context));
+			text1.setTypeface(FontUtils.getHelveticaNeueTypeface(context));
 			text1.setText(item);
 		}
 

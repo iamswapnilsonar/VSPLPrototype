@@ -4,6 +4,20 @@
     <string name="hello">Hello World, DemoActivity!</string>
     <string name="app_name">PNG Diamonds</string>
 
+    <string name="lightning">Natural Lightning</string>
+    <string name="color_baloons">Color Baloons</string>
+    <string name="natural_wall">Natural Wall</string>
+    
+    <string name="sample_activity"> Sample Activity </string>
+    
+    <string name="str_knowledge_base">Knowledge Base</string>
+    <string name="str_make_your_own_ring">Make Your Own Ring</string>
+    <string name="str_product_gallery">Product Gallery</string>
+    <string name="str_jewellery_sets">Jewellery Sets</string>
+    <string name="str_wish_list">Wish List</string>    
+    <string name="str_collection_gallery">Collection Gallery</string>
+    <string name="str_about_png_diamonds">About PNG Diamonds</string>
+    
     <string-array name="heros">
         <item>aamir</item>
         <item>ajay</item>

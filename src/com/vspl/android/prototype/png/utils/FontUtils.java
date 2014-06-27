@@ -10,18 +10,18 @@ import android.graphics.Typeface;
  */
 public class FontUtils {
 
-	public static Typeface getRobotoLightTypeface(Context context){
-		// created custom font "roboto_light.ttf"..
-		return Typeface.createFromAsset(context.getAssets(),"fonts/roboto_light.ttf");
+	public static Typeface getHelveticaNeueBoldTypeface(Context context){
+		// created custom font "helvetica_neue_bold.ttf"..
+		return Typeface.createFromAsset(context.getAssets(),"fonts/helvetica_neue_bold.ttf");
 	}
 	
-	public static Typeface getRobotoBackTypeface(Context context){
-		// created custom font "roboto_black.ttf"..
-		return Typeface.createFromAsset(context.getAssets(),"fonts/roboto_black.ttf");
+	public static Typeface getHelveticaNeueTypeface(Context context){
+		// created custom font "helvetica_neue.ttf"..
+		return Typeface.createFromAsset(context.getAssets(),"fonts/helvetica_neue.ttf");
 	}
 	
-	public static Typeface getRobotoRegularTypeface(Context context){
-		// created custom font "roboto_regular.ttf"..
-		return Typeface.createFromAsset(context.getAssets(),"fonts/roboto_regular.ttf");
+	public static Typeface getHelveticaNeueCondensedBoldTypeface(Context context){
+		// created custom font "helvetica_neue_condensed_bold.ttf"..
+		return Typeface.createFromAsset(context.getAssets(),"fonts/helvetica_neue_condensed_bold.ttf");
 	}
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <TextView
+        android:id="@+id/tv_model_name"
+        style="@style/style_tv_ornament_descr"
+        android:text="JEWELLERY SET M2546" />
+
+    <TextView
+        android:id="@+id/tv_diamond_pieces"
+        style="@style/style_tv_ornament_descr"
+        android:text="Diamond Pieces:" />
+
+    <TextView
+        android:id="@+id/tv_gold_weight"
+        style="@style/style_tv_ornament_descr"
+        android:text="18 Carat Gold Weight:" />
+
+    <TextView
+        android:id="@+id/tv_diamond_weight"
+        style="@style/style_tv_ornament_descr"
+        android:text="Diamond Weight:" />
+
+</LinearLayout>

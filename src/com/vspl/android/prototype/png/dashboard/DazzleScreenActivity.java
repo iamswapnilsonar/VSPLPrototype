@@ -160,7 +160,7 @@ public class DazzleScreenActivity extends Activity {
 		content.setSpan(new UnderlineSpan(), 0, mystring.length(), 0);
 		tvDazzleYourself.setText(content);
 		
-		tvDazzleYourself.setTypeface(FontUtils.getRobotoBackTypeface(DazzleScreenActivity.this));
+		tvDazzleYourself.setTypeface(FontUtils.getHelveticaNeueBoldTypeface(DazzleScreenActivity.this));
 		
 		
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {

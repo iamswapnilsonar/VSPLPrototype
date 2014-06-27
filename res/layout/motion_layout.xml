@@ -49,7 +49,7 @@
                     android:id="@+id/ivCardView"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/sample" >
+                    android:src="@drawable/img_mdl3" >
                 </com.vspl.android.prototype.png.ui.ScaleImageView>
             </AbsoluteLayout>
         </RelativeLayout>

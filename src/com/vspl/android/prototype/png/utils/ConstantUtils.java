@@ -1,5 +1,7 @@
 package com.vspl.android.prototype.png.utils;
 
+import com.vspl.android.prototype.png.R;
+
 /**
  * This class stores constants which used in through out the development.
  * 
@@ -14,4 +16,15 @@ public class ConstantUtils {
 
 	public static String[] necklaces = { "_nck1", "_nck2", "_nck3", "_nck4",
 			"_nck5" };
+	
+	public static String[] arr_slidemenu = { "Knowledge Base", "Make Your Own Ring", "Product Gallery",
+		"Jewellery Sets", "Wish List", "Collection Gallery", "About PNG Diamonds"};
+	
+	public static int[] arr_slidemenu_icons = {R.drawable.ic_knowledgebase_nrml, R.drawable.ic_makeyourownring_nrml, 
+			R.drawable.ic_productgallery_nrml, R.drawable.ic_jewellerysets_nrml, R.drawable.ic_wishlist_nrml, 
+			R.drawable.ic_collectiongallery_nrml, R.drawable.ic_aboutpng_nrml};
+	
+	public static String[] arr_ornaments_titles = {"BRIDAL COLLECTION", "ELEGANZA COLLECTION", "PEARLS COLLECTION", 
+			"PLATINUM COLLECTION", "TROUSSEAU COLLECTION"};
+	
 }
