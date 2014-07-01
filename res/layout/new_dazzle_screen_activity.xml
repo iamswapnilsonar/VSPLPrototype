@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_dazzler"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+
+        <ImageView
+            android:id="@+id/btn_show_sliding_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:src="@drawable/btn_show_sliding_menu_tap_effect" />
+
+        <ImageView
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:src="@drawable/btn_setting_effect"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_app_logo"
+        style="@style/style_png_app_logo" />
+
+    <ImageView
+        android:id="@+id/img_center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_verticalline" />
+
+    <LinearLayout
+        android:id="@+id/lin_ornaments_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="110dip"
+        android:layout_marginTop="8dip"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                style="@style/style_btn_ornaments_types"
+                android:background="@drawable/btn_ring_tap_effect"
+                android:visibility="invisible" />
+
+            <Button
+                style="@style/style_btn_ornaments_types"
+                android:background="@drawable/btn_ring_tap_effect" />
+
+            <Button
+                style="@style/style_btn_ornaments_types"
+                android:background="@drawable/btn_jewel_tap_effect" />
+
+            <Button
+                style="@style/style_btn_ornaments_types"
+                android:background="@drawable/btn_ring_tap_effect" />
+
+            <Button
+                style="@style/style_btn_ornaments_types"
+                android:background="@drawable/btn_jewel_tap_effect" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/bg_horizontalline" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_grid_page_indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="325dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/img_app_logo"
+        android:layout_toRightOf="@+id/img_center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="300dip" >
+        </android.support.v4.view.ViewPager>
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/pagerIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lin_dazzle_options_layout"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/lin_grid_page_indicator"
+        android:layout_toRightOf="@+id/img_center_vertical"
+        android:paddingBottom="5dip"
+        android:paddingLeft="25dip"
+        android:paddingRight="25dip" >
+
+        <com.vspl.android.prototype.png.ui.HorizontalListView
+            android:id="@+id/list_sel_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_dazzle_options_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dip" >
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_cam_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_gal_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_preview_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_next_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_cam_dazzler_tap_effect"
+            android:visibility="invisible" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_wish_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_share_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_save_dazzler_tap_effect" />
+
+        <Button
+            style="@style/style_btn_dazzler_bottomlayout"
+            android:background="@drawable/btn_gallery_dazzler_tap_effect" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dip"
+        android:src="@drawable/img_mdl3" />
+
+</RelativeLayout>

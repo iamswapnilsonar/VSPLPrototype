@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -46,7 +47,8 @@ public class SampleListFragment extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				showTost("Position : "+position);
+//				showTost("Position : "+position);
+				startActivity(new Intent(getActivity(), MainActivity.class));
 			}
 			
 		});

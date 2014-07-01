@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 
-import com.vspl.android.prototype.png.dashboard.DashboardScreenActivity;
-
 /**
  * This is Splash screen activity.
  * @Date 27 May, 2014
@@ -55,7 +53,7 @@ public class SplashScreenActivity extends Activity {
 				}
 
 				// Once splash time is finished start next screen
-				startActivity(new Intent(SplashScreenActivity.this,DashboardScreenActivity.class));
+				startActivity(new Intent(SplashScreenActivity.this,HomeScreenActivity.class));
 
 			} catch (Exception e) {
 				Log.e("Splash", e.toString());

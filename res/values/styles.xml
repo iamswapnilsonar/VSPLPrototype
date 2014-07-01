@@ -4,13 +4,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -24,6 +24,29 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="style_btn_dazzler_bottomlayout">
+        <item name="android:layout_width">40dip</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:layout_marginRight">10dip</item>
+    </style>
+
+    <style name="style_btn_ornaments_types">
+        <item name="android:layout_width">60dip</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginRight">5dip</item>
+    </style>
+
+    <style name="style_png_app_logo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:src">@drawable/ic_logo</item>
     </style>
 
 </resources>

@@ -84,9 +84,7 @@ public class DazzleScreenActivity extends Activity {
 				Logger.vLog(" onItemClick ", "Key : "+strKey+" Value : "+dataOfOrnamentList.get(position)+" Map Size :"+mapForSelectedOrnaments.size());
 				
 				selectedListAdapter.notifyDataSetChanged();
-			}
-
-			
+			}			
 			
 		});
 		
