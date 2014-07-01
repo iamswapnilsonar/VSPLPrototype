@@ -176,13 +176,22 @@
             android:background="@drawable/btn_gallery_dazzler_tap_effect" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_model"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <FrameLayout
+        android:id="@+id/frmlayout_img_mdl"
+        android:layout_width="470dip"
+        android:layout_height="470dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dip"
-        android:src="@drawable/img_mdl3" />
+        android:background="@drawable/img_mdl3" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="matrix"
+            android:src="@drawable/center_two" >
+        </ImageView>
+    </FrameLayout>
 
 </RelativeLayout>

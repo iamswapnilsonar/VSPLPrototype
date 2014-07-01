@@ -5,23 +5,40 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Display;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.viewpagerindicator.PageIndicator;
 import com.vspl.android.prototype.png.adapters.SelectedOrnamentsListAdapter;
+import com.vspl.android.prototype.png.gesturedetectors.MoveGestureDetector;
+import com.vspl.android.prototype.png.gesturedetectors.RotateGestureDetector;
+import com.vspl.android.prototype.png.gesturedetectors.ShoveGestureDetector;
+import com.vspl.android.prototype.png.logger.Logger;
 import com.vspl.android.prototype.png.sliding_menu.SlidingMenu;
 import com.vspl.android.prototype.png.ui.HorizontalListView;
 import com.vspl.android.prototype.png.utils.MethodUtils;
 
-public class MainActivity extends BaseActivity implements OnClickListener{
+public class MainActivity extends BaseActivity implements OnClickListener, OnTouchListener{
 
 	public MainActivity() {
 		super(R.string.sample_activity);
@@ -48,6 +65,27 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	private String deviceNames_4[] = { "ABCD", "BCDE", "CDEF", "DEFG", "EFGH", "FGHI", "GHIJ", "HIJK", "IJKL", "JKLM"};
 
 	private List<String[]> listOfDevicesArray;
+	
+	// Image transformation section
+	
+	private ImageView view; 
+	private float finalHeight = 0.f;
+	private float finalWidth = 0.f;
+	
+	private FrameLayout frameLayout;		
+	
+	private Matrix mMatrix = new Matrix();
+    private float mScaleFactor = .4f;
+    private float mRotationDegrees = 0.f;
+    private float mFocusX = 0.f;
+    private float mFocusY = 0.f;  
+    private int mAlpha = 255;
+    private int mImageHeight, mImageWidth;
+
+    private ScaleGestureDetector mScaleDetector;
+    private RotateGestureDetector mRotateDetector;
+    private MoveGestureDetector mMoveDetector;
+    private ShoveGestureDetector mShoveDetector; 
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +145,66 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		lvSelectedOrnaments = (HorizontalListView) findViewById(R.id.list_sel_items);
 		selectedListAdapter = new SelectedOrnamentsListAdapter(mContext, mapForSelectedOrnaments, listener);		
 		lvSelectedOrnaments.setAdapter(selectedListAdapter);
+		
+		// Determine the center of the screen to center 'earth'
+		Display display = getWindowManager().getDefaultDisplay();
+		mFocusX = display.getWidth()/4f;
+		mFocusY = display.getHeight()/2f;
+		
+		// FrameLayout for model image
+		frameLayout = (FrameLayout) findViewById(R.id.frmlayout_img_mdl);
+		
+		// Set this class as touchListener to the ImageView
+		view = (ImageView) findViewById(R.id.imageView);
+		view.setOnTouchListener(this);
+		
+//		ViewTreeObserver vto = view.getViewTreeObserver();
+//		vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+//		    public boolean onPreDraw() {
+//		    	view.getViewTreeObserver().removeOnPreDrawListener(this);
+//		        finalHeight = view.getMeasuredHeight();
+//		        finalWidth = view.getMeasuredWidth();
+//		        tv.setText("Height: " + finalHeight + " Width: " + finalWidth);
+//		        return true;
+//		    }
+//		});
+		
+//		ViewTreeObserver vto = frameLayout.getViewTreeObserver();
+//		vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+//		    public boolean onPreDraw() {
+//		    	
+//		    	frameLayout.getViewTreeObserver().removeOnPreDrawListener(this);
+//		        finalHeight = frameLayout.getMeasuredHeight()/2f;
+//		        finalWidth = frameLayout.getMeasuredWidth()/2f;
+//		       
+//		        return true;
+//		    }
+//		});
+		
+//		mFocusX = finalWidth;
+//		mFocusY = finalHeight;
+		
+		Logger.vLog("initUI", "mFocusX : "+mFocusX +" mFocusY : "+mFocusY);
+		
+		// Determine dimensions of 'earth' image
+		Drawable d 		= this.getResources().getDrawable(R.drawable.center_two);
+		mImageHeight 	= d.getIntrinsicHeight();
+		mImageWidth 	= d.getIntrinsicWidth();
+
+		// View is scaled and translated by matrix, so scale and translate initially
+		float scaledImageCenterX = (mImageWidth*mScaleFactor)/2; 
+		float scaledImageCenterY = (mImageHeight*mScaleFactor)/2;
+
+		mMatrix.postScale(mScaleFactor, mScaleFactor);
+		mMatrix.postTranslate(mFocusX - scaledImageCenterX, mFocusY - scaledImageCenterY);
+		view.setImageMatrix(mMatrix);
+
+		// Setup Gesture Detectors
+		mScaleDetector 	= new ScaleGestureDetector(getApplicationContext(), new ScaleListener());
+		mRotateDetector = new RotateGestureDetector(getApplicationContext(), new RotateListener());
+		mMoveDetector 	= new MoveGestureDetector(getApplicationContext(), new MoveListener());
+		mShoveDetector 	= new ShoveGestureDetector(getApplicationContext(), new ShoveListener());
+		
 	}
 
 	private OnClickListener listener = new OnClickListener() {
@@ -158,5 +256,73 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			break;
 		}
 
+	}
+	
+	@SuppressWarnings("deprecation")
+	public boolean onTouch(View v, MotionEvent event) {
+        mScaleDetector.onTouchEvent(event);
+        mRotateDetector.onTouchEvent(event);
+        mMoveDetector.onTouchEvent(event);
+        mShoveDetector.onTouchEvent(event);
+
+        float scaledImageCenterX = (mImageWidth*mScaleFactor)/2;
+        float scaledImageCenterY = (mImageHeight*mScaleFactor)/2;
+        
+        mMatrix.reset();
+        mMatrix.postScale(mScaleFactor, mScaleFactor);
+        mMatrix.postRotate(mRotationDegrees,  scaledImageCenterX, scaledImageCenterY);
+        mMatrix.postTranslate(mFocusX - scaledImageCenterX, mFocusY - scaledImageCenterY);
+        
+		ImageView view = (ImageView) v;
+		view.setImageMatrix(mMatrix);
+		view.setAlpha(mAlpha);
+
+		return true; // indicate event was handled
+	}
+
+	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			mScaleFactor *= detector.getScaleFactor(); // scale change since previous event
+			
+			// Don't let the object get too small or too large.
+			mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f)); 
+
+			return true;
+		}
+	}
+	
+	private class RotateListener extends RotateGestureDetector.SimpleOnRotateGestureListener {
+		@Override
+		public boolean onRotate(RotateGestureDetector detector) {
+			mRotationDegrees -= detector.getRotationDegreesDelta();
+			return true;
+		}
+	}	
+	
+	private class MoveListener extends MoveGestureDetector.SimpleOnMoveGestureListener {
+		@Override
+		public boolean onMove(MoveGestureDetector detector) {
+			PointF d = detector.getFocusDelta();
+			mFocusX += d.x;
+			mFocusY += d.y;		
+
+			// mFocusX = detector.getFocusX();
+			// mFocusY = detector.getFocusY();
+			return true;
+		}
+	}		
+	
+	private class ShoveListener extends ShoveGestureDetector.SimpleOnShoveGestureListener {
+		@Override
+		public boolean onShove(ShoveGestureDetector detector) {
+			mAlpha += detector.getShovePixelsDelta();
+			if (mAlpha > 255)
+				mAlpha = 255;
+			else if (mAlpha < 0)
+				mAlpha = 0;
+			
+			return true;
+		}
 	}
 }
