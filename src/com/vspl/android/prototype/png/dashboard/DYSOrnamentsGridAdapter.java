@@ -14,9 +14,7 @@ public class DYSOrnamentsGridAdapter extends BaseAdapter {
 	Context context;
 	
 	int images[] = { 	R.drawable.ic_product_one, R.drawable.ic_product_two, R.drawable.ic_product_three, 
-			R.drawable.ic_product_four, R.drawable.ic_product_five, R.drawable.ic_product_one, 
-			R.drawable.ic_product_two, R.drawable.ic_product_three, R.drawable.ic_product_four, 
-			R.drawable.ic_product_five};
+			R.drawable.ic_product_four, R.drawable.ic_product_five, R.drawable.ic_product_one };
 
 	public class ViewHolder {
 		public ImageView imageView;
@@ -88,9 +86,8 @@ public class DYSOrnamentsGridAdapter extends BaseAdapter {
 			viewHolder = new ViewHolder();
 			
 			viewHolder.imageView = (ImageView) view.findViewById(R.id.grid_item_image);
-			
-//			viewHolder.textTitle = (TextView) view
-//					.findViewById(R.id.grid_item_label);
+//			viewHolder.imageView.setBackgroundResource(R.color.sel_color);
+//			viewHolder.textTitle = (TextView) view.findViewById(R.id.grid_item_label);
 			
 			view.setTag(viewHolder);
 		} else {

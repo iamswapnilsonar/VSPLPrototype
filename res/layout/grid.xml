@@ -11,8 +11,10 @@
         android:layout_margin="4dp"
         android:columnWidth="130dip"
         android:gravity="center"
+        android:listSelector="@drawable/grid_list_selector_tap_effect"
         android:numColumns="auto_fit"
-        android:stretchMode="columnWidth" >
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="20dip" >
     </GridView>
 
 </LinearLayout>

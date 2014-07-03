@@ -7,6 +7,11 @@
     android:padding="10dip" >
 
     <TextView
+        android:id="@+id/tv_collection_name"
+        style="@style/style_tv_ornament_collection_name"
+        android:text="Bridal Collection" />
+    
+    <TextView
         android:id="@+id/tv_model_name"
         style="@style/style_tv_ornament_descr"
         android:text="JEWELLERY SET M2546" />

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg_dazzler"
+    android:background="#C6C5C5"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -48,35 +48,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="110dip"
-        android:layout_marginTop="8dip"
+        android:layout_marginRight="120dip"
+        android:layout_marginTop="15dip"
         android:orientation="vertical" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <Button
-                style="@style/style_btn_ornaments_types"
-                android:background="@drawable/btn_ring_tap_effect"
-                android:visibility="invisible" />
-
-            <Button
-                style="@style/style_btn_ornaments_types"
-                android:background="@drawable/btn_ring_tap_effect" />
-
-            <Button
-                style="@style/style_btn_ornaments_types"
-                android:background="@drawable/btn_jewel_tap_effect" />
-
-            <Button
-                style="@style/style_btn_ornaments_types"
-                android:background="@drawable/btn_ring_tap_effect" />
-
-            <Button
-                style="@style/style_btn_ornaments_types"
-                android:background="@drawable/btn_jewel_tap_effect" />
-        </LinearLayout>
+        <include layout="@layout/lin_text_menubar" />
 
         <ImageView
             android:layout_width="match_parent"

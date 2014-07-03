@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/tvRings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#418AD1"
+        android:gravity="center_horizontal"
+        android:padding="5dip"
+        android:text="Rings"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/vFirstSecond"
+        android:layout_width="1dip"
+        android:layout_height="20dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_verticalline" />
+
+    <TextView
+        android:id="@+id/tvEarRings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dip"
+        android:text="Earrings"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/vSecondThird"
+        android:layout_width="1dip"
+        android:layout_height="20dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_verticalline" />
+
+    <TextView
+        android:id="@+id/tvNecklaces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dip"
+        android:text="Necklaces"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/vThirdFourth"
+        android:layout_width="1dip"
+        android:layout_height="20dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_verticalline" />
+
+    <TextView
+        android:id="@+id/tvMangalsutra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dip"
+        android:text="Mangalsutra"
+        android:textSize="18sp" />
+
+</LinearLayout>

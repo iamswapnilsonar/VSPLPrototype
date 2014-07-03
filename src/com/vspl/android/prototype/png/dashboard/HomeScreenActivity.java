@@ -79,6 +79,7 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener{
 		sm.setShadowDrawable(R.drawable.shadow);
 		
 		// Ornaments details
+		((TextView) findViewById(R.id.tv_collection_name)).setTypeface(typeface);
 		((TextView) findViewById(R.id.tv_model_name)).setTypeface(typeface);
 		((TextView) findViewById(R.id.tv_diamond_pieces)).setTypeface(typeface);
 		((TextView) findViewById(R.id.tv_gold_weight)).setTypeface(typeface);

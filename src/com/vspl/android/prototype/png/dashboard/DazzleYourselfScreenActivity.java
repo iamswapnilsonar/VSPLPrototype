@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
@@ -22,6 +23,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.viewpagerindicator.PageIndicator;
@@ -57,15 +59,14 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	public static LinkedHashMap<String, String> mapForSelectedOrnaments = new LinkedHashMap<String, String>();
 	public static SelectedOrnamentsListAdapter selectedListAdapter;
 	
-	private String deviceNames_1[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
-	private String deviceNames_2[] = { "AB", "BC", "CD", "DE", "EF", "FG", "GH", "HI", "IJ", "JK"};
-	private String deviceNames_3[] = { "ABC", "BCD", "CDE", "DEF", "EFG", "FGH", "GHI", "HIJ", "IJK", "JKL",};
-	private String deviceNames_4[] = { "ABCD", "BCDE", "CDEF", "DEFG", "EFGH", "FGHI", "GHIJ", "HIJK", "IJKL", "JKLM"};
+	private String deviceNames_1[] = { "A", "B", "C", "D", "E", "F"};
+	private String deviceNames_2[] = { "AB", "BC", "CD", "DE", "EF", "FG"};
+	private String deviceNames_3[] = { "ABC", "BCD", "CDE", "DEF", "EFG", "FGH"};
+	private String deviceNames_4[] = { "ABCD", "BCDE", "CDEF", "DEFG", "EFGH", "FGHI"};
 
 	private List<String[]> listOfDevicesArray;
 	
-	// Image transformation section
-	
+	// ---- Image transformation section ----//
 	private ImageView view; 
 	
 	@SuppressWarnings("unused")
@@ -83,7 +84,13 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
     private RotateGestureDetector mRotateDetector;
     private MoveGestureDetector mMoveDetector;
     private ShoveGestureDetector mShoveDetector; 
-	
+	// ---- End Image transformation section ----//
+    
+    // ---- Horizontal text menubar ----//
+    private TextView tvRings, tvEarRings, tvNecklaces, tvMangalsutra;
+	private View vFirstSecond, vSecondThird, vThirdFourth;
+    // ---- End Horizontal text menubar ----//    
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -203,6 +210,19 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 		mMoveDetector 	= new MoveGestureDetector(getApplicationContext(), new MoveListener());
 		mShoveDetector 	= new ShoveGestureDetector(getApplicationContext(), new ShoveListener());
 		
+		vFirstSecond = (View) findViewById(R.id.vFirstSecond);
+		vSecondThird = (View) findViewById(R.id.vSecondThird);
+		vThirdFourth = (View) findViewById(R.id.vThirdFourth);
+		
+		tvRings = (TextView) findViewById(R.id.tvRings);
+		tvEarRings = (TextView) findViewById(R.id.tvEarRings);
+		tvNecklaces = (TextView) findViewById(R.id.tvNecklaces);
+		tvMangalsutra = (TextView) findViewById(R.id.tvMangalsutra);
+		
+		tvRings.setOnClickListener(this);
+		tvEarRings.setOnClickListener(this);
+		tvNecklaces.setOnClickListener(this);
+		tvMangalsutra.setOnClickListener(this);	
 	}
 
 	public void showDazzledModelImage(LinkedHashMap<String, String> map) {
@@ -226,6 +246,10 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 		
 	}
 	
+	public void removeOrnamentsFromModelImage(){
+		view.setImageResource(0);
+	}
+	
 	private OnClickListener listener = new OnClickListener() {
 
 		@Override
@@ -241,6 +265,9 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 
 			// refresh the dazzled image 
 			// showDazzledModelImage(mapForSelectedOrnaments);
+			
+			// Remove ornaments from model
+			removeOrnamentsFromModelImage();
 		}
 	};
 	
@@ -273,8 +300,70 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 		case R.id.btn_show_sliding_menu:
 			sm.toggle();
 			break;
+			
+		case R.id.tvRings:
+			setTvRingsBackgroundColor();
+			break;
+
+		case R.id.tvEarRings:
+			setTvEarRingsBackgroundColor();
+			break;
+			
+		case R.id.tvNecklaces:
+			setTvNecklacesBackgroundColor();
+			break;
+			
+		case R.id.tvMangalsutra:
+			setTvMangalsutraBackgroundColor();
+			break;
+			
 		}
 
+	}
+	
+	public void setTvRingsBackgroundColor(){
+		
+		tvRings.setBackgroundColor(getResources().getColor(R.color.sel_color));		
+		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		
+		vFirstSecond.setVisibility(View.INVISIBLE);
+		vSecondThird.setVisibility(View.VISIBLE);
+		vThirdFourth.setVisibility(View.VISIBLE);
+	}
+
+	public void setTvEarRingsBackgroundColor(){
+		tvRings.setBackgroundColor(Color.TRANSPARENT);		
+		tvEarRings.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		
+		vFirstSecond.setVisibility(View.INVISIBLE);
+		vSecondThird.setVisibility(View.INVISIBLE);
+		vThirdFourth.setVisibility(View.VISIBLE);
+	}
+
+	public void setTvNecklacesBackgroundColor(){
+		tvRings.setBackgroundColor(Color.TRANSPARENT);		
+		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvNecklaces.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		
+		vFirstSecond.setVisibility(View.VISIBLE);
+		vSecondThird.setVisibility(View.INVISIBLE);
+		vThirdFourth.setVisibility(View.INVISIBLE);
+	}
+
+	public void setTvMangalsutraBackgroundColor(){
+		tvRings.setBackgroundColor(Color.TRANSPARENT);		
+		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		
+		vFirstSecond.setVisibility(View.VISIBLE);
+		vSecondThird.setVisibility(View.VISIBLE);
+		vThirdFourth.setVisibility(View.INVISIBLE);
 	}
 	
 	@SuppressWarnings("deprecation")

@@ -25,6 +25,18 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+    
+    <style name="style_tv_ornament_collection_name">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">2dip</item>
+        <item name="android:paddingLeft">2dip</item>
+        <item name="android:paddingTop">2dip</item>
+        <item name="android:paddingRight">2dip</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <style name="style_btn_dazzler_bottomlayout">
         <item name="android:layout_width">40dip</item>
@@ -46,7 +58,7 @@
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:paddingLeft">5dip</item>
-        <item name="android:paddingRight">10dip</item>
+        <item name="android:paddingRight">16dip</item>
         <item name="android:paddingTop">5dip</item>
         <item name="android:paddingBottom">5dip</item>
         <item name="android:src">@drawable/ic_logo</item>
