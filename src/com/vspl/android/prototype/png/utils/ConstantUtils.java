@@ -27,4 +27,8 @@ public class ConstantUtils {
 	public static String[] arr_ornaments_titles = {"BRIDAL COLLECTION", "ELEGANZA COLLECTION", "PEARLS COLLECTION", 
 			"PLATINUM COLLECTION", "TROUSSEAU COLLECTION"};
 	
+	public static String[] arr_grid_ornaments = { "ic_product_one", "ic_product_two", "ic_product_three", 
+		"ic_product_four", "ic_product_five", "ic_product_one", "ic_product_two", "ic_product_three", 
+		"ic_product_four", "ic_product_five"};
+	
 }
