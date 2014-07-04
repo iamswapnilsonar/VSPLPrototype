@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/lin_logo_appname"
+        android:layout_width="fill_parent"
+        android:layout_height="80dip"
+        android:paddingLeft="@dimen/list_padding"
+        android:paddingRight="@dimen/list_padding" >
+
+        <TextView
+            android:id="@+id/row_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="5dip"
+            android:text="COLLECTIONS"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/row_icon"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:paddingBottom="5dip"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/ic_png" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_margin="10dip"
+        android:background="@drawable/bg_horizontalline" />
+
+    <ListView
+        android:id="@+id/list_sliding_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:listSelector="@drawable/bg_row_selection"
+        android:paddingLeft="@dimen/list_padding"
+        android:paddingRight="@dimen/list_padding" >
+    </ListView>
+
+</LinearLayout>

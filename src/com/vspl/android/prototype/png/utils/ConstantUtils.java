@@ -32,4 +32,6 @@ public class ConstantUtils {
 		"ic_product_four", "ic_product_five", "ic_product_one", "ic_product_two", "ic_product_three", 
 		"ic_product_four", "ic_product_five"};
 	
+	public static int[] arr_collection_gallery = {R.drawable.bg_bridal_model, R.drawable.bg_eleganza_model, R.drawable.bg_pearl_model, 
+		R.drawable.bg_platinum_model, R.drawable.bg_trousseau_model};
 }

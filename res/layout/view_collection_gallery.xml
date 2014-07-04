@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/btn_next"
+        android:layout_toRightOf="@+id/btn_previous" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <!--
+                 <ImageView
+                android:id="@+id/img_ornament"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_bridal_model" />
+            -->
+
+            <ImageSwitcher
+                android:id="@+id/imageSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom|right"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/img_fb"
+                    android:layout_width="@dimen/social_img_size_col_gallery"
+                    android:layout_height="@dimen/social_img_size_col_gallery"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:src="@drawable/img_fb_tap_effect" />
+
+                <ImageView
+                    android:id="@+id/img_twitter"
+                    android:layout_width="@dimen/social_img_size_col_gallery"
+                    android:layout_height="@dimen/social_img_size_col_gallery"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:src="@drawable/img_twitter_tap_effect" />
+
+                <ImageView
+                    android:id="@+id/img_pinterest"
+                    android:layout_width="@dimen/social_img_size_col_gallery"
+                    android:layout_height="@dimen/social_img_size_col_gallery"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:src="@drawable/img_pinterest_tap_effect" />
+
+                <ImageView
+                    android:id="@+id/img_add_wishlist"
+                    android:layout_width="@dimen/social_img_size_col_gallery"
+                    android:layout_height="@dimen/social_img_size_col_gallery"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:src="@drawable/img_wishlist_tap_effect" />
+
+                <ImageView
+                    android:id="@+id/img_share"
+                    android:layout_width="@dimen/social_img_size_col_gallery"
+                    android:layout_height="@dimen/social_img_size_col_gallery"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:src="@drawable/img_share_tap_effect"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="Next" />
+
+</RelativeLayout>
