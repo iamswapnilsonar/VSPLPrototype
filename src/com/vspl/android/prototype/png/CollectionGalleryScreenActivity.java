@@ -1,25 +1,37 @@
 package com.vspl.android.prototype.png;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageSwitcher;
-import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher.ViewFactory;
 
+import com.vspl.android.prototype.png.adapters.CGThumbnailListAdapter;
+import com.vspl.android.prototype.png.ui.HorizontalListView;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
 
-public class PNGDiamondsTestingScreenActivity extends Activity implements OnClickListener {
+public class CollectionGalleryScreenActivity extends Activity implements OnClickListener {
 
-	private Button btnPrevious, btnNext;
-	private ImageView imgOrnament;
+	private Button btnPrevious, btnNext;	
 	private ImageSwitcher imageSwitcher;
+	
+	private HorizontalListView lvThumbnails;
+	private CGThumbnailListAdapter thumbsListAdapter, collGalleryListAdapter, gridAdapter, gridSixAdapter;
+	
+	private ListView lvCollectionGallery;
+	private GridView gridView, sixGridView;
+	private Button btnSingleGrid, btnFourGrid, btnSixGrid;  
+	private ViewFlipper viewFlipper;
 	
 	private int mArrLength;
 	private int mIndex;
@@ -31,15 +43,55 @@ public class PNGDiamondsTestingScreenActivity extends Activity implements OnClic
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.view_collection_gallery);
+		setContentView(R.layout.collection_gallery_activity);
 		
 		mContext = this;
+		
+		initUI();
+		
+	}
+	
+	private void initUI() {
+		// TODO Auto-generated method stub
+		
+		viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+		viewFlipper.setDisplayedChild(0);
+		
+		btnSingleGrid = (Button) findViewById(R.id.btn_single_grid);
+		btnFourGrid = (Button) findViewById(R.id.btn_four_grid);
+		btnSixGrid = (Button) findViewById(R.id.btn_six_grid);
+		
+		btnSingleGrid.setOnClickListener(this);
+		btnFourGrid.setOnClickListener(this);
+		btnSixGrid.setOnClickListener(this);		
 		
 		btnPrevious = (Button) findViewById(R.id.btn_previous);
 		btnNext = (Button) findViewById(R.id.btn_next);
 		
 		btnPrevious.setOnClickListener(this);
 		btnNext.setOnClickListener(this);
+		
+		lvThumbnails = (HorizontalListView) findViewById(R.id.lv_coll_gallery_thumbs);
+		
+		Integer[] thumbsListData = ArrayUtils.toObject(ConstantUtils.arr_thumb_coll_gallery);
+		thumbsListAdapter = new CGThumbnailListAdapter(mContext, thumbsListData, 0);
+		
+		lvThumbnails.setAdapter(thumbsListAdapter);
+		
+		lvCollectionGallery = (ListView) findViewById(R.id.lv_collection_gallery);
+		Integer[] collectionGalleryListData = ArrayUtils.toObject(ConstantUtils.arr_coll_gallery);
+		collGalleryListAdapter = new CGThumbnailListAdapter(mContext, collectionGalleryListData, 1);
+		
+		lvCollectionGallery.setAdapter(collGalleryListAdapter);
+		
+		gridView =(GridView) findViewById(R.id.gridView);
+		Integer[] collectionGalleryGridData = ArrayUtils.toObject(ConstantUtils.arr_collection_gallery);
+		gridAdapter = new CGThumbnailListAdapter(mContext, collectionGalleryGridData, 2);
+		gridView.setAdapter(gridAdapter);
+		
+		sixGridView =(GridView) findViewById(R.id.sixGridView);
+		gridSixAdapter = new CGThumbnailListAdapter(mContext, collectionGalleryGridData, 3);
+		sixGridView.setAdapter(gridSixAdapter);
 		
 		inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
@@ -53,23 +105,34 @@ public class PNGDiamondsTestingScreenActivity extends Activity implements OnClic
 			}
 		});
 		
-//		imgOrnament = (ImageView) findViewById(R.id.img_ornament);
-		
 		mArrLength = ConstantUtils.arr_collection_gallery.length;
 		
 		if (mIndex == 0) {
 			// we want to disable these button..
-			btnPrevious.setEnabled(false);
-			btnNext.setEnabled(true);
+			btnPrevious.setVisibility(View.INVISIBLE);
+			btnNext.setVisibility(View.VISIBLE);
 		}
+		
 	}
-	
+
 	@Override
 	public void onClick(View view) {
 		// TODO Auto-generated method stub
 		int key = view.getId();
 		
 		switch (key) {
+			
+		case R.id.btn_single_grid:
+			viewFlipper.setDisplayedChild(0);
+			break;
+		
+		case R.id.btn_four_grid:
+			viewFlipper.setDisplayedChild(1);
+			break;
+			
+		case R.id.btn_six_grid:
+			viewFlipper.setDisplayedChild(2);
+			break;
 			
 		case R.id.btn_previous:
 			
@@ -94,9 +157,6 @@ public class PNGDiamondsTestingScreenActivity extends Activity implements OnClic
 			
 			mIndex--;
 			
-//			Animation prev_slide_out_right = AnimationUtils.loadAnimation(this, R.anim.right_in);
-//			Animation prev_slide_in_left = AnimationUtils.loadAnimation(this, R.anim.left_out);
-			
 			imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
 			imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
 			imageSwitcher.setImageResource(ConstantUtils.arr_collection_gallery[mIndex]);
@@ -104,13 +164,13 @@ public class PNGDiamondsTestingScreenActivity extends Activity implements OnClic
 			// search the first image from Gallery
 			if (mIndex == 0) {
 				// we want to disable these button..
-				btnPrevious.setEnabled(false);
-				btnNext.setEnabled(true);
+				btnPrevious.setVisibility(View.INVISIBLE);
+				btnNext.setVisibility(View.VISIBLE);
 			}
 
 			if (mIndex > 0) {
-				btnNext.setEnabled(true);
-				btnPrevious.setEnabled(true);
+				btnNext.setVisibility(View.VISIBLE);
+				btnPrevious.setVisibility(View.VISIBLE);
 			}
 			
 			break;
@@ -137,11 +197,8 @@ public class PNGDiamondsTestingScreenActivity extends Activity implements OnClic
 			
 			mIndex++;
 			
-			Animation next_slide_in_left = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
-			Animation next_slide_out_right = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
-			
-//			imageSwitcher.setInAnimation(next_slide_in_left);
-//			imageSwitcher.setOutAnimation(next_slide_out_right);
+//			Animation next_slide_in_left = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+//			Animation next_slide_out_right = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
 			
 			imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
 			imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
@@ -151,13 +208,13 @@ public class PNGDiamondsTestingScreenActivity extends Activity implements OnClic
 			// search the last image from Gallery
 			if (mIndex == mArrLength - 1) {
 				// we want to disable these button..
-				btnNext.setEnabled(false);
-				btnPrevious.setEnabled(true);
+				btnNext.setVisibility(View.INVISIBLE);
+				btnPrevious.setVisibility(View.VISIBLE);
 			}
 
 			if (mIndex < mArrLength - 1) {
-				btnNext.setEnabled(true);
-				btnPrevious.setEnabled(true);
+				btnNext.setVisibility(View.VISIBLE);
+				btnPrevious.setVisibility(View.VISIBLE);
 			}
 			
 			break;

@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#F0F0F0" >
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="300dip"
+        android:layout_marginTop="10dip" >
+
+        <Button
+            android:id="@+id/btn_single_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/btn_singledot_tap_effect" />
+
+        <Button
+            android:id="@+id/btn_four_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/btn_fourdot_tap_effect" />
+
+        <Button
+            android:id="@+id/btn_six_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/btn_sixdot_tap_effect" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_col_gallery_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal" >
@@ -11,15 +45,16 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.70" >
+            android:layout_weight="0.72" >
 
             <include layout="@layout/view_collection_gallery" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/lin_col_gallery_sidebar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.30" >
+            android:layout_weight="0.28" >
 
             <include layout="@layout/collection_gallery_left_sidebar" />
         </LinearLayout>

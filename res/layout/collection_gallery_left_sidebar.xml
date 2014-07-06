@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/bg"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -20,7 +20,7 @@
             android:gravity="center_vertical"
             android:padding="5dip"
             android:text="COLLECTIONS"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -37,18 +37,20 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dip"
-        android:layout_margin="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
         android:background="@drawable/bg_horizontalline" />
 
     <ListView
-        android:id="@+id/list_sliding_menu"
+        android:id="@+id/lv_collection_gallery"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:cacheColorHint="#00000000"
-        android:listSelector="@drawable/bg_row_selection"
-        android:paddingLeft="@dimen/list_padding"
-        android:paddingRight="@dimen/list_padding" >
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@drawable/bg_row_selection" >
     </ListView>
 
 </LinearLayout>

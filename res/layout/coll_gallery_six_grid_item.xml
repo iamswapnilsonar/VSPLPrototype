@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/img"
+    android:layout_width="210dip"
+    android:layout_height="160dip"
+    android:padding="5dip"
+    android:src="@drawable/btn_sidebar_amor_nrml" >
+
+</ImageView>
