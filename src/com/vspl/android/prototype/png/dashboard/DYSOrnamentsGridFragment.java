@@ -14,6 +14,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.vspl.android.prototype.png.R;
+import com.vspl.android.prototype.png.adapters.DYSOrnamentsGridAdapter;
 import com.vspl.android.prototype.png.adapters.SelectedOrnamentsListAdapter;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
 import com.vspl.android.prototype.png.utils.MethodUtils;

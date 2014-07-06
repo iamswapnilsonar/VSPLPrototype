@@ -41,7 +41,7 @@ import com.vspl.android.prototype.png.utils.MethodUtils;
 public class DazzleYourselfScreenActivity extends BaseActivity implements OnClickListener, OnTouchListener{
 
 	public DazzleYourselfScreenActivity() {
-		super(R.string.sample_activity);
+		super(R.string.dazzel_yourself_activity);
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -8,7 +8,9 @@
     <string name="color_baloons">Color Baloons</string>
     <string name="natural_wall">Natural Wall</string>
     
-    <string name="sample_activity"> Sample Activity </string>
+    <string name="home_activity"> Home Activity </string>
+    <string name="dazzel_yourself_activity"> Dazzle Yourself Activity </string>
+    <string name="collection_gallery_activity"> Collection Gallery Screen Activity </string>
     
     <string name="str_knowledge_base">Knowledge Base</string>
     <string name="str_make_your_own_ring">Make Your Own Ring</string>

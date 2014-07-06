@@ -18,7 +18,9 @@ import android.widget.Toast;
 
 import com.vspl.android.prototype.png.R;
 import com.vspl.android.prototype.png.adapters.SlideMenuAdapter;
+import com.vspl.android.prototype.png.dashboard.CollectionGalleryScreenActivity;
 import com.vspl.android.prototype.png.dashboard.DazzleYourselfScreenActivity;
+import com.vspl.android.prototype.png.dashboard.HomeScreenActivity;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
 import com.vspl.android.prototype.png.utils.FontUtils;
 
@@ -48,8 +50,23 @@ public class SlidingMenuFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				// TODO Auto-generated method stub
+				Class<?> cls = null;
+				String activity_title = ConstantUtils.arr_slidemenu[position];
 				
-				startActivity(new Intent(getActivity(), DazzleYourselfScreenActivity.class));
+				if (activity_title.equals("Home")) {
+					cls = HomeScreenActivity.class;	
+				} else if (activity_title.equals("Dazzel Yourself")) {
+					cls = DazzleYourselfScreenActivity.class;
+				} else if (activity_title.equals("Collection Gallery")){
+					cls = CollectionGalleryScreenActivity.class;
+				} else{
+					cls = HomeScreenActivity.class;	
+				}
+				
+				Intent intent = new Intent(getActivity(), cls);
+				startActivity(intent);
+				
+//				startActivity(new Intent(getActivity(), DazzleYourselfScreenActivity.class));
 				
 				// close opened slidemenu before leave to activity 
 				((BaseActivity)getActivity()).closeSlideMenu();

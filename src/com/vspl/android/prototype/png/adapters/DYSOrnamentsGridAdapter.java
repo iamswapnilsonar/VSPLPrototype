@@ -1,4 +1,4 @@
-package com.vspl.android.prototype.png.dashboard;
+package com.vspl.android.prototype.png.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.vspl.android.prototype.png.R;
+import com.vspl.android.prototype.png.dashboard.DYSOrnamentsGridItems;
 
 public class DYSOrnamentsGridAdapter extends BaseAdapter {
 

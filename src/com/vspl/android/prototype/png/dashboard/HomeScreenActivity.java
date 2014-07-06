@@ -26,7 +26,7 @@ import com.vspl.android.prototype.png.utils.FontUtils;
 public class HomeScreenActivity extends BaseActivity implements OnClickListener{
 
 	public HomeScreenActivity() {
-		super(R.string.sample_activity);
+		super(R.string.home_activity);
 		// TODO Auto-generated constructor stub
 	}
 	

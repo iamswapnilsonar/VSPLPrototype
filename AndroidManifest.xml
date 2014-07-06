@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.vspl.android.prototype.png.CollectionGalleryScreenActivity"
+            android:name="com.vspl.android.prototype.png.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
             <intent-filter>
@@ -28,6 +28,10 @@
         </activity>
         <activity
             android:name="com.vspl.android.prototype.png.dashboard.DazzleYourselfScreenActivity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.vspl.android.prototype.png.dashboard.CollectionGalleryScreenActivity"
             android:screenOrientation="landscape" >
         </activity>
     </application>

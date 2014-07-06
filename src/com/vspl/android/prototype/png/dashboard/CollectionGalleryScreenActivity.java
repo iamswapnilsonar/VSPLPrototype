@@ -1,8 +1,7 @@
-package com.vspl.android.prototype.png;
+package com.vspl.android.prototype.png.dashboard;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,16 +11,28 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher.ViewFactory;
 
+import com.vspl.android.prototype.png.R;
 import com.vspl.android.prototype.png.adapters.CGThumbnailListAdapter;
+import com.vspl.android.prototype.png.sliding_menu.BaseActivity;
+import com.vspl.android.prototype.png.sliding_menu.SlidingMenu;
 import com.vspl.android.prototype.png.ui.HorizontalListView;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
 
-public class CollectionGalleryScreenActivity extends Activity implements OnClickListener {
+public class CollectionGalleryScreenActivity extends BaseActivity implements OnClickListener {
 
+	public CollectionGalleryScreenActivity() {
+		super(R.string.collection_gallery_activity);
+		// TODO Auto-generated constructor stub
+	}
+	
+	private ImageView btnShowSlidingMenu;
+	private SlidingMenu sm;
+	
 	private Button btnPrevious, btnNext;	
 	private ImageSwitcher imageSwitcher;
 	
@@ -40,7 +51,7 @@ public class CollectionGalleryScreenActivity extends Activity implements OnClick
 	private LayoutInflater inflater=null;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.collection_gallery_activity);
@@ -56,6 +67,14 @@ public class CollectionGalleryScreenActivity extends Activity implements OnClick
 		
 		viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
 		viewFlipper.setDisplayedChild(0);
+		
+		btnShowSlidingMenu = (ImageView) findViewById(R.id.btn_show_sliding_menu);
+		btnShowSlidingMenu.setOnClickListener(this);
+		
+		// Sliding Menu..
+		sm = getSlidingMenu();
+		sm.setMode(SlidingMenu.LEFT);
+		sm.setShadowDrawable(R.drawable.shadow);
 		
 		btnSingleGrid = (Button) findViewById(R.id.btn_single_grid);
 		btnFourGrid = (Button) findViewById(R.id.btn_four_grid);
@@ -122,6 +141,10 @@ public class CollectionGalleryScreenActivity extends Activity implements OnClick
 		
 		switch (key) {
 			
+		case R.id.btn_show_sliding_menu:
+			sm.toggle();			
+			break;
+		
 		case R.id.btn_single_grid:
 			viewFlipper.setDisplayedChild(0);
 			break;
