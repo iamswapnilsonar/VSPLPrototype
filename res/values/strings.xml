@@ -11,6 +11,8 @@
     <string name="home_activity"> Home Activity </string>
     <string name="dazzel_yourself_activity"> Dazzle Yourself Activity </string>
     <string name="collection_gallery_activity"> Collection Gallery Screen Activity </string>
+    <string name="product_gallery_activity"> Product Gallery Screen Activity </string>
+    <string name="knowledge_base_activity"> Knowledge Base Screen Activity </string>
     
     <string name="str_knowledge_base">Knowledge Base</string>
     <string name="str_make_your_own_ring">Make Your Own Ring</string>

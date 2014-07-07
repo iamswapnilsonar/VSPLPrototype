@@ -40,7 +40,7 @@ public class DYSOrnamentsGridFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view;
-		view = inflater.inflate(R.layout.grid, container, false);
+		view = inflater.inflate(R.layout.gridview, container, false);
 		mGridView = (GridView) view.findViewById(R.id.gridView);
 		return view;
 	}

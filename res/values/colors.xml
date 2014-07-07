@@ -3,5 +3,6 @@
 
     <color name="sel_color">#418AD1</color>
     <color name="normal_color">#FFFFFF</color>
-
+	<color name="normal_text_color">#96999B</color> 
+	   
 </resources>

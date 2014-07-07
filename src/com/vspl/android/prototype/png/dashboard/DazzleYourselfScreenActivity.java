@@ -8,6 +8,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,6 +37,7 @@ import com.vspl.android.prototype.png.logger.Logger;
 import com.vspl.android.prototype.png.sliding_menu.BaseActivity;
 import com.vspl.android.prototype.png.sliding_menu.SlidingMenu;
 import com.vspl.android.prototype.png.ui.HorizontalListView;
+import com.vspl.android.prototype.png.utils.FontUtils;
 import com.vspl.android.prototype.png.utils.MethodUtils;
 
 public class DazzleYourselfScreenActivity extends BaseActivity implements OnClickListener, OnTouchListener{
@@ -87,6 +89,7 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	// ---- End Image transformation section ----//
     
     // ---- Horizontal text menubar ----//
+    private Typeface typeface;
     private TextView tvRings, tvEarRings, tvNecklaces, tvMangalsutra;
 	private View vFirstSecond, vSecondThird, vThirdFourth;
     // ---- End Horizontal text menubar ----//    
@@ -94,15 +97,32 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Override how this activity is animated into view
+		// The new activity is pulled in from the left and the current activity is kept still
+		// This has to be called before onCreate
+		overridePendingTransition(R.anim.pull_in_from_right, R.anim.hold);
+		
 		setContentView(R.layout.new_dazzle_screen_activity);
 
 		initUI();
 	}
 
+	@Override
+    protected void onPause() {
+		// Whenever this activity is paused (i.e. looses focus because another activity is started etc)
+		// Override how this activity is animated out of view
+		// The new activity is kept still and this activity is pushed out to the left
+        overridePendingTransition(R.anim.hold, R.anim.push_out_to_right);
+        super.onPause();
+    }
+	
 	@SuppressWarnings("deprecation")
 	private void initUI() {
 		// TODO Auto-generated method stub
 		mContext = DazzleYourselfScreenActivity.this;
+		
+		typeface = FontUtils.getVerdanaTypeface(mContext);
 		
 		// Sliding Menu..
 		sm = getSlidingMenu();
@@ -213,11 +233,17 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 		vFirstSecond = (View) findViewById(R.id.vFirstSecond);
 		vSecondThird = (View) findViewById(R.id.vSecondThird);
 		vThirdFourth = (View) findViewById(R.id.vThirdFourth);
+		vFirstSecond.setVisibility(View.INVISIBLE);
 		
 		tvRings = (TextView) findViewById(R.id.tvRings);
 		tvEarRings = (TextView) findViewById(R.id.tvEarRings);
 		tvNecklaces = (TextView) findViewById(R.id.tvNecklaces);
 		tvMangalsutra = (TextView) findViewById(R.id.tvMangalsutra);
+		
+		tvRings.setTypeface(typeface);
+		tvEarRings.setTypeface(typeface);
+		tvNecklaces.setTypeface(typeface);
+		tvMangalsutra.setTypeface(typeface);
 		
 		tvRings.setOnClickListener(this);
 		tvEarRings.setOnClickListener(this);
@@ -323,10 +349,17 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	
 	public void setTvRingsBackgroundColor(){
 		
-		tvRings.setBackgroundColor(getResources().getColor(R.color.sel_color));		
+		tvRings.setBackgroundColor(getResources().getColor(R.color.sel_color));	
+		tvRings.setTextColor(Color.WHITE);
+		
 		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvEarRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
+		tvNecklaces.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
 		
 		vFirstSecond.setVisibility(View.INVISIBLE);
 		vSecondThird.setVisibility(View.VISIBLE);
@@ -334,10 +367,18 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	}
 
 	public void setTvEarRingsBackgroundColor(){
-		tvRings.setBackgroundColor(Color.TRANSPARENT);		
+		
+		tvRings.setBackgroundColor(Color.TRANSPARENT);	
+		tvRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvEarRings.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvEarRings.setTextColor(Color.WHITE);
+		
 		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
 		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		
+		tvNecklaces.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
 		
 		vFirstSecond.setVisibility(View.INVISIBLE);
 		vSecondThird.setVisibility(View.INVISIBLE);
@@ -345,10 +386,18 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	}
 
 	public void setTvNecklacesBackgroundColor(){
-		tvRings.setBackgroundColor(Color.TRANSPARENT);		
+		
+		tvRings.setBackgroundColor(Color.TRANSPARENT);
+		tvRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvEarRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvNecklaces.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvNecklaces.setTextColor(Color.WHITE);
+		
 		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
 		
 		vFirstSecond.setVisibility(View.VISIBLE);
 		vSecondThird.setVisibility(View.INVISIBLE);
@@ -356,10 +405,18 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	}
 
 	public void setTvMangalsutraBackgroundColor(){
-		tvRings.setBackgroundColor(Color.TRANSPARENT);		
+		
+		tvRings.setBackgroundColor(Color.TRANSPARENT);
+		tvRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvEarRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
+		tvNecklaces.setTextColor(getResources().getColor(R.color.normal_text_color));
+		
 		tvMangalsutra.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvMangalsutra.setTextColor(Color.WHITE);
 		
 		vFirstSecond.setVisibility(View.VISIBLE);
 		vSecondThird.setVisibility(View.VISIBLE);

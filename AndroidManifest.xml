@@ -34,6 +34,14 @@
             android:name="com.vspl.android.prototype.png.dashboard.CollectionGalleryScreenActivity"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.vspl.android.prototype.png.dashboard.KnowledgeBaseScreenActivity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.vspl.android.prototype.png.dashboard.ProductGalleryScreenActivity"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>

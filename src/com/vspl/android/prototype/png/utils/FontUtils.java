@@ -24,4 +24,9 @@ public class FontUtils {
 		// created custom font "helvetica_neue_condensed_bold.ttf"..
 		return Typeface.createFromAsset(context.getAssets(),"fonts/helvetica_neue_condensed_bold.ttf");
 	}
+	
+	public static Typeface getVerdanaTypeface(Context context){
+		// created custom font "verdana.ttf"..
+		return Typeface.createFromAsset(context.getAssets(),"fonts/verdana.ttf");
+	}
 }

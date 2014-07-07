@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#C6C5C5"
+    android:background="#F0F0F0"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -108,48 +108,57 @@
 
     <LinearLayout
         android:id="@+id/lin_dazzle_options_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:paddingBottom="5dip" >
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_cam_dazzler_tap_effect" />
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" >
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_gal_dazzler_tap_effect" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_cam_dazzler_tap_effect" />
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_preview_dazzler_tap_effect" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_gal_dazzler_tap_effect" />
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_next_dazzler_tap_effect" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_preview_dazzler_tap_effect" />
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_cam_dazzler_tap_effect"
-            android:visibility="invisible" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_next_dazzler_tap_effect" />
+        </LinearLayout>
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_wish_dazzler_tap_effect" />
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" >
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_share_dazzler_tap_effect" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_wish_dazzler_tap_effect" />
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_save_dazzler_tap_effect" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_share_dazzler_tap_effect" />
 
-        <Button
-            style="@style/style_btn_dazzler_bottomlayout"
-            android:background="@drawable/btn_gallery_dazzler_tap_effect" />
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_save_dazzler_tap_effect" />
+
+            <Button
+                style="@style/style_btn_dazzler_bottomlayout"
+                android:background="@drawable/btn_gallery_dazzler_tap_effect" />
+        </LinearLayout>
     </LinearLayout>
 
     <FrameLayout
@@ -165,8 +174,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="matrix" >
-        </ImageView>
+            android:scaleType="matrix" />
     </FrameLayout>
 
 </RelativeLayout>

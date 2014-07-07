@@ -53,6 +53,11 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener{
 		
 		setSlidingActionBarEnabled(true);
 		
+		// Override how this activity is animated into view
+		// The new activity is pulled in from the left and the current activity is kept still
+		// This has to be called before onCreate
+		overridePendingTransition(R.anim.pull_in_from_right, R.anim.hold);
+		
 		setContentView(R.layout.home_screen_activity);
 		initUI();		
 	}
@@ -62,7 +67,7 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener{
 
 		mContext = this;
 		
-		typeface = FontUtils.getHelveticaNeueCondensedBoldTypeface(mContext);
+		typeface = FontUtils.getVerdanaTypeface(mContext);
 		
 		btnShowSlidingMenu = (ImageView) findViewById(R.id.btn_show_sliding_menu);
 		btnSetting = (ImageView) findViewById(R.id.btn_setting);
@@ -205,6 +210,15 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener{
         Toast.makeText(HomeScreenActivity.this, msg, Toast.LENGTH_LONG).show();  
     }
 
+	@Override
+    protected void onPause() {
+		// Whenever this activity is paused (i.e. looses focus because another activity is started etc)
+		// Override how this activity is animated out of view
+		// The new activity is kept still and this activity is pushed out to the left
+        overridePendingTransition(R.anim.hold, R.anim.push_out_to_right);
+        super.onPause();
+    }
+	
 	@Override
 	public void onClick(View view) {
 		// TODO Auto-generated method stub

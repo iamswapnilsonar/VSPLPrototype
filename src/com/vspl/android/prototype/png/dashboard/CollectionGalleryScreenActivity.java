@@ -13,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher.ViewFactory;
 
@@ -22,6 +23,7 @@ import com.vspl.android.prototype.png.sliding_menu.BaseActivity;
 import com.vspl.android.prototype.png.sliding_menu.SlidingMenu;
 import com.vspl.android.prototype.png.ui.HorizontalListView;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
+import com.vspl.android.prototype.png.utils.FontUtils;
 
 public class CollectionGalleryScreenActivity extends BaseActivity implements OnClickListener {
 
@@ -54,13 +56,26 @@ public class CollectionGalleryScreenActivity extends BaseActivity implements OnC
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		// Override how this activity is animated into view
+		// The new activity is pulled in from the left and the current activity is kept still
+		// This has to be called before onCreate
+		overridePendingTransition(R.anim.pull_in_from_right, R.anim.hold);
+		
 		setContentView(R.layout.collection_gallery_activity);
 		
 		mContext = this;
-		
 		initUI();
-		
 	}
+	
+	@Override
+    protected void onPause() {
+		// Whenever this activity is paused (i.e. looses focus because another activity is started etc)
+		// Override how this activity is animated out of view
+		// The new activity is kept still and this activity is pushed out to the left
+        overridePendingTransition(R.anim.hold, R.anim.push_out_to_right);
+        super.onPause();
+    }
 	
 	private void initUI() {
 		// TODO Auto-generated method stub
@@ -89,6 +104,9 @@ public class CollectionGalleryScreenActivity extends BaseActivity implements OnC
 		
 		btnPrevious.setOnClickListener(this);
 		btnNext.setOnClickListener(this);
+		
+		((TextView) findViewById(R.id.tv_row_title)).setTypeface(
+				FontUtils.getHelveticaNeueCondensedBoldTypeface(mContext));
 		
 		lvThumbnails = (HorizontalListView) findViewById(R.id.lv_coll_gallery_thumbs);
 		

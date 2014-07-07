@@ -21,6 +21,8 @@ import com.vspl.android.prototype.png.adapters.SlideMenuAdapter;
 import com.vspl.android.prototype.png.dashboard.CollectionGalleryScreenActivity;
 import com.vspl.android.prototype.png.dashboard.DazzleYourselfScreenActivity;
 import com.vspl.android.prototype.png.dashboard.HomeScreenActivity;
+import com.vspl.android.prototype.png.dashboard.KnowledgeBaseScreenActivity;
+import com.vspl.android.prototype.png.dashboard.ProductGalleryScreenActivity;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
 import com.vspl.android.prototype.png.utils.FontUtils;
 
@@ -31,7 +33,7 @@ public class SlidingMenuFragment extends Fragment {
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
-		View view = inflater.inflate(R.layout.sliding_menu, container, false);
+		View view = inflater.inflate(R.layout.sliding_menu_content, container, false);
 		
 		ListView listView = (ListView) view.findViewById(R.id.list_sliding_menu);  
 		
@@ -57,16 +59,18 @@ public class SlidingMenuFragment extends Fragment {
 					cls = HomeScreenActivity.class;	
 				} else if (activity_title.equals("Dazzel Yourself")) {
 					cls = DazzleYourselfScreenActivity.class;
+				} else if (activity_title.equals("Product Gallery")){
+					cls = ProductGalleryScreenActivity.class;	
 				} else if (activity_title.equals("Collection Gallery")){
 					cls = CollectionGalleryScreenActivity.class;
-				} else{
-					cls = HomeScreenActivity.class;	
+				} else if (activity_title.equals("Knowledge Base")){
+					cls = KnowledgeBaseScreenActivity.class;
 				}
 				
-				Intent intent = new Intent(getActivity(), cls);
-				startActivity(intent);
-				
-//				startActivity(new Intent(getActivity(), DazzleYourselfScreenActivity.class));
+				if (cls != null) {
+					Intent intent = new Intent(getActivity(), cls);
+					startActivity(intent);
+				}
 				
 				// close opened slidemenu before leave to activity 
 				((BaseActivity)getActivity()).closeSlideMenu();
