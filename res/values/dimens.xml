@@ -27,4 +27,5 @@
     <dimen name="social_img_size_col_gallery_marginLeft">10dip</dimen>
 
     <dimen name="style_tv_lin_text_menubar">16sp</dimen>
+    <dimen name="style_tv_lin_text_menubar_selected">17sp</dimen>
 </resources>

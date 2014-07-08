@@ -33,7 +33,7 @@
 
     <ImageView
         android:id="@+id/img_app_logo"
-        style="@style/style_png_app_logo" />
+        style="@style/style_png_app_logo_updated" />
 
     <ImageView
         android:id="@+id/img_center_vertical"

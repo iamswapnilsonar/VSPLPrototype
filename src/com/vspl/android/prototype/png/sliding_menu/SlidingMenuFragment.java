@@ -21,7 +21,9 @@ import com.vspl.android.prototype.png.adapters.SlideMenuAdapter;
 import com.vspl.android.prototype.png.dashboard.CollectionGalleryScreenActivity;
 import com.vspl.android.prototype.png.dashboard.DazzleYourselfScreenActivity;
 import com.vspl.android.prototype.png.dashboard.HomeScreenActivity;
+import com.vspl.android.prototype.png.dashboard.JewellerySetScreenActivity;
 import com.vspl.android.prototype.png.dashboard.KnowledgeBaseScreenActivity;
+import com.vspl.android.prototype.png.dashboard.MyWishListScreenActivity;
 import com.vspl.android.prototype.png.dashboard.ProductGalleryScreenActivity;
 import com.vspl.android.prototype.png.utils.ConstantUtils;
 import com.vspl.android.prototype.png.utils.FontUtils;
@@ -63,17 +65,24 @@ public class SlidingMenuFragment extends Fragment {
 					cls = ProductGalleryScreenActivity.class;	
 				} else if (activity_title.equals("Collection Gallery")){
 					cls = CollectionGalleryScreenActivity.class;
+				} else if (activity_title.equals("My Wish List")){
+					cls = MyWishListScreenActivity.class;
 				} else if (activity_title.equals("Knowledge Base")){
 					cls = KnowledgeBaseScreenActivity.class;
-				}
+				}				
 				
 				if (cls != null) {
+					
 					Intent intent = new Intent(getActivity(), cls);
 					startActivity(intent);
+					
+					// close opened slidemenu before leave to activity 
+					((BaseActivity)getActivity()).closeSlideMenu();
+					
+					// close parent activity
+					getActivity().finish();
 				}
 				
-				// close opened slidemenu before leave to activity 
-				((BaseActivity)getActivity()).closeSlideMenu();
 			}
 			
 		});

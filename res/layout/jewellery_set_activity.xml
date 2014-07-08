@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_jewellery_set"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_temp_show_sidebar"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:background="@android:color/transparent" />
+</LinearLayout>

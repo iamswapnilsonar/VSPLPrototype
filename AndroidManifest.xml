@@ -42,6 +42,14 @@
             android:name="com.vspl.android.prototype.png.dashboard.ProductGalleryScreenActivity"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.vspl.android.prototype.png.dashboard.JewellerySetScreenActivity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.vspl.android.prototype.png.dashboard.MyWishListScreenActivity"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>

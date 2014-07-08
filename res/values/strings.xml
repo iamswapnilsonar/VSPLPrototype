@@ -13,6 +13,8 @@
     <string name="collection_gallery_activity"> Collection Gallery Screen Activity </string>
     <string name="product_gallery_activity"> Product Gallery Screen Activity </string>
     <string name="knowledge_base_activity"> Knowledge Base Screen Activity </string>
+    <string name="jewellery_set_activity"> Jewellery Set Screen Activity </string>
+    <string name="my_whishlist_activity"> My WishList Screen Activity </string>
     
     <string name="str_knowledge_base">Knowledge Base</string>
     <string name="str_make_your_own_ring">Make Your Own Ring</string>

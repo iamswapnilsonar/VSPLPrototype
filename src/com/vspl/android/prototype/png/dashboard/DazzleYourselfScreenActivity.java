@@ -91,6 +91,7 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
     // ---- Horizontal text menubar ----//
     private Typeface typeface;
     private TextView tvRings, tvEarRings, tvNecklaces, tvMangalsutra;
+	@SuppressWarnings("unused")
 	private View vFirstSecond, vSecondThird, vThirdFourth;
     // ---- End Horizontal text menubar ----//    
     
@@ -233,7 +234,7 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 		vFirstSecond = (View) findViewById(R.id.vFirstSecond);
 		vSecondThird = (View) findViewById(R.id.vSecondThird);
 		vThirdFourth = (View) findViewById(R.id.vThirdFourth);
-		vFirstSecond.setVisibility(View.INVISIBLE);
+//		vFirstSecond.setVisibility(View.INVISIBLE);
 		
 		tvRings = (TextView) findViewById(R.id.tvRings);
 		tvEarRings = (TextView) findViewById(R.id.tvEarRings);
@@ -244,11 +245,13 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 		tvEarRings.setTypeface(typeface);
 		tvNecklaces.setTypeface(typeface);
 		tvMangalsutra.setTypeface(typeface);
-		
+				
 		tvRings.setOnClickListener(this);
 		tvEarRings.setOnClickListener(this);
 		tvNecklaces.setOnClickListener(this);
 		tvMangalsutra.setOnClickListener(this);	
+		
+		setTvEarRingsBackgroundColor();
 	}
 
 	public void showDazzledModelImage(LinkedHashMap<String, String> map) {
@@ -348,79 +351,134 @@ public class DazzleYourselfScreenActivity extends BaseActivity implements OnClic
 	}
 	
 	public void setTvRingsBackgroundColor(){
+				
+//		tvRings.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvRings.setBackgroundColor(Color.TRANSPARENT);
+		tvRings.setTextColor(getResources().getColor(R.color.text_color_png_logo));
+		tvRings.setTypeface(tvRings.getTypeface(), Typeface.BOLD);
+//		tvRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar_selected));
 		
-		tvRings.setBackgroundColor(getResources().getColor(R.color.sel_color));	
-		tvRings.setTextColor(Color.WHITE);
 		
 		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
 		tvEarRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvEarRings.setTypeface(tvEarRings.getTypeface(), Typeface.NORMAL);
+//		tvEarRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
 		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
 		tvNecklaces.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvNecklaces.setTypeface(tvNecklaces.getTypeface(), Typeface.NORMAL);
+//		tvNecklaces.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
 		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
 		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvMangalsutra.setTypeface(tvMangalsutra.getTypeface(), Typeface.NORMAL);
+//		tvMangalsutra.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
-		vFirstSecond.setVisibility(View.INVISIBLE);
-		vSecondThird.setVisibility(View.VISIBLE);
-		vThirdFourth.setVisibility(View.VISIBLE);
+//		vFirstSecond.setVisibility(View.INVISIBLE);
+//		vSecondThird.setVisibility(View.VISIBLE);
+//		vThirdFourth.setVisibility(View.VISIBLE);
 	}
 
 	public void setTvEarRingsBackgroundColor(){
 		
 		tvRings.setBackgroundColor(Color.TRANSPARENT);	
 		tvRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvRings.setTypeface(tvRings.getTypeface(), Typeface.NORMAL);
+//		tvRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
-		tvEarRings.setBackgroundColor(getResources().getColor(R.color.sel_color));
-		tvEarRings.setTextColor(Color.WHITE);
+//		tvEarRings.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
+		tvEarRings.setTextColor(getResources().getColor(R.color.text_color_png_logo));
+		tvEarRings.setTypeface(tvEarRings.getTypeface(), Typeface.BOLD);
+//		tvEarRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar_selected));
 		
 		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
-		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
-		
 		tvNecklaces.setTextColor(getResources().getColor(R.color.normal_text_color));
-		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvNecklaces.setTypeface(tvNecklaces.getTypeface(), Typeface.NORMAL);
+//		tvNecklaces.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
-		vFirstSecond.setVisibility(View.INVISIBLE);
-		vSecondThird.setVisibility(View.INVISIBLE);
-		vThirdFourth.setVisibility(View.VISIBLE);
+		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvMangalsutra.setTypeface(tvMangalsutra.getTypeface(), Typeface.NORMAL);
+//		tvMangalsutra.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
+		
+//		vFirstSecond.setVisibility(View.INVISIBLE);
+//		vSecondThird.setVisibility(View.INVISIBLE);
+//		vThirdFourth.setVisibility(View.VISIBLE);
 	}
 
 	public void setTvNecklacesBackgroundColor(){
 		
 		tvRings.setBackgroundColor(Color.TRANSPARENT);
 		tvRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvRings.setTypeface(tvRings.getTypeface(), Typeface.NORMAL);
+//		tvRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
 		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
 		tvEarRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvEarRings.setTypeface(tvEarRings.getTypeface(), Typeface.NORMAL);
+//		tvEarRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
+				
+//		tvNecklaces.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
+		tvNecklaces.setTextColor(getResources().getColor(R.color.text_color_png_logo));
+		tvNecklaces.setTypeface(tvNecklaces.getTypeface(), Typeface.BOLD);
+//		tvNecklaces.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar_selected));
 		
-		tvNecklaces.setBackgroundColor(getResources().getColor(R.color.sel_color));
-		tvNecklaces.setTextColor(Color.WHITE);
 		
 		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
 		tvMangalsutra.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvMangalsutra.setTypeface(tvMangalsutra.getTypeface(), Typeface.NORMAL);
+//		tvMangalsutra.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
-		vFirstSecond.setVisibility(View.VISIBLE);
-		vSecondThird.setVisibility(View.INVISIBLE);
-		vThirdFourth.setVisibility(View.INVISIBLE);
+//		vFirstSecond.setVisibility(View.VISIBLE);
+//		vSecondThird.setVisibility(View.INVISIBLE);
+//		vThirdFourth.setVisibility(View.INVISIBLE);
 	}
 
 	public void setTvMangalsutraBackgroundColor(){
 		
 		tvRings.setBackgroundColor(Color.TRANSPARENT);
 		tvRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvRings.setTypeface(tvRings.getTypeface(), Typeface.NORMAL);
+//		tvRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
 		tvEarRings.setBackgroundColor(Color.TRANSPARENT);
 		tvEarRings.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvEarRings.setTypeface(tvEarRings.getTypeface(), Typeface.NORMAL);
+//		tvEarRings.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
 		
 		tvNecklaces.setBackgroundColor(Color.TRANSPARENT);
 		tvNecklaces.setTextColor(getResources().getColor(R.color.normal_text_color));
+		tvNecklaces.setTypeface(tvNecklaces.getTypeface(), Typeface.NORMAL);
+//		tvNecklaces.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar));
+				
+//		tvMangalsutra.setBackgroundColor(getResources().getColor(R.color.sel_color));
+		tvMangalsutra.setBackgroundColor(Color.TRANSPARENT);
+		tvMangalsutra.setTextColor(getResources().getColor(R.color.text_color_png_logo));
+		tvMangalsutra.setTypeface(tvMangalsutra.getTypeface(), Typeface.BOLD);
+//		tvMangalsutra.setTextSize( TypedValue.COMPLEX_UNIT_PX, 
+//				mContext.getResources().getDimensionPixelSize(R.dimen.style_tv_lin_text_menubar_selected));
 		
-		tvMangalsutra.setBackgroundColor(getResources().getColor(R.color.sel_color));
-		tvMangalsutra.setTextColor(Color.WHITE);
 		
-		vFirstSecond.setVisibility(View.VISIBLE);
-		vSecondThird.setVisibility(View.VISIBLE);
-		vThirdFourth.setVisibility(View.INVISIBLE);
+//		vFirstSecond.setVisibility(View.VISIBLE);
+//		vSecondThird.setVisibility(View.VISIBLE);
+//		vThirdFourth.setVisibility(View.INVISIBLE);
 	}
 	
 	@SuppressWarnings("deprecation")

@@ -3,6 +3,7 @@
 
     <color name="sel_color">#418AD1</color>
     <color name="normal_color">#FFFFFF</color>
-	<color name="normal_text_color">#96999B</color> 
-	   
+    <color name="normal_text_color">#96999B</color>
+    <color name="text_color_png_logo">#10538B</color>
+
 </resources>
