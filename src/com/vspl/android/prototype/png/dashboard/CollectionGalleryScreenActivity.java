@@ -19,6 +19,7 @@ import android.widget.ViewSwitcher.ViewFactory;
 
 import com.vspl.android.prototype.png.R;
 import com.vspl.android.prototype.png.adapters.CGThumbnailListAdapter;
+import com.vspl.android.prototype.png.logger.Logger;
 import com.vspl.android.prototype.png.sliding_menu.BaseActivity;
 import com.vspl.android.prototype.png.sliding_menu.SlidingMenu;
 import com.vspl.android.prototype.png.ui.HorizontalListView;
@@ -200,7 +201,12 @@ public class CollectionGalleryScreenActivity extends BaseActivity implements OnC
 			
 			imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
 			imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
-			imageSwitcher.setImageResource(ConstantUtils.arr_collection_gallery[mIndex]);
+			
+			Logger.vLog("Button Previous : ", "mIndex : "+mIndex);
+			
+			if (mIndex >= 0) {
+				imageSwitcher.setImageResource(ConstantUtils.arr_collection_gallery[mIndex]);
+			}
 			
 			// search the first image from Gallery
 			if (mIndex == 0) {
@@ -244,7 +250,11 @@ public class CollectionGalleryScreenActivity extends BaseActivity implements OnC
 			imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
 			imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
 			
-			imageSwitcher.setImageResource(ConstantUtils.arr_collection_gallery[mIndex]);
+			Logger.vLog("Button Next : ", "mIndex : "+mIndex);
+			
+			if (mIndex < ConstantUtils.arr_collection_gallery.length) {
+				imageSwitcher.setImageResource(ConstantUtils.arr_collection_gallery[mIndex]);
+			}	
 			
 			// search the last image from Gallery
 			if (mIndex == mArrLength - 1) {

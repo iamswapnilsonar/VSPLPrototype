@@ -52,4 +52,10 @@ public class ConstantUtils {
 			R.drawable.btn_sidebar_dazzler_nrml, R.drawable.btn_sidebar_eleganza_nrml,
 			R.drawable.btn_sidebar_pearls_nrml, R.drawable.btn_sidebar_platinum_nrml,
 			R.drawable.btn_sidebar_trousseau_nrml, R.drawable.btn_sidebar_seasonal_nrml};
+	
+	public static int[] arr_coll_gallery_2 = { R.drawable.btn_sidebar_changeover_new,
+		R.drawable.btn_sidebar_eleganza_new, R.drawable.btn_sidebar_pearls_new,
+		R.drawable.btn_sidebar_platinum_new, R.drawable.btn_sidebar_seasonal_new,
+		R.drawable.btn_sidebar_changeover_new, R.drawable.btn_sidebar_eleganza_new,
+		R.drawable.btn_sidebar_pearls_new, R.drawable.btn_sidebar_platinum_new};
 }
